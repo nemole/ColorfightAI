@@ -8,7 +8,7 @@ from .game_map import GameMap
 from .user import User
 from .position import Position
 from .network import Network
-from .constants import update_globals, CMD_ATTACK, CMD_BUILD, CMD_UPGRADE, GAME_VERSION
+from .constants import update_globals, CMD_ATTACK, CMD_BUILD, CMD_UPGRADE, GAME_VERSION, GAME_WIDTH, GAME_HEIGHT
 
 class Colorfight:
     def __init__(self):
@@ -28,6 +28,8 @@ class Colorfight:
         self.info_queue = None
         self.action_queue = None
         self.action_resp_queue = None
+        self.width = GAME_WIDTH
+        self.height = GAME_HEIGHT
 
     def connect(self, room = 'public', url = None):
         self.info_queue = queue.Queue()
@@ -113,7 +115,7 @@ class Colorfight:
             else:
                 self.uid = int(result['uid'])
                 return True
-        except Exception as e:
+        except Exception:
             raise Exception("Failed to register to the game!")
 
     def attack(self, position, energy):
