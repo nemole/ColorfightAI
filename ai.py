@@ -3,6 +3,7 @@ import time
 import random
 from colorfight.constants import BLD_GOLD_MINE, BLD_ENERGY_WELL, BLD_FORTRESS, BUILDING_COST
 
+#this is my good change very good change
 def play_game(
         game, \
         room     = 'public', \
